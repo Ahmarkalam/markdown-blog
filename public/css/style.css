@@ -1,0 +1,251 @@
+/* --- Variables & Base Styles --- */
+:root {
+    --primary-color: #af7973;      /* A fiery red for main elements */
+    --primary-hover: #b47d77;      /* A darker red for hover */
+    --dark-color: #ecf0f1;        /* A very light gray (almost white) for text */
+    --light-color: #2c3e50;        /* A dark slate color for card backgrounds */
+    --gray-color: #95a5a6;        /* A muted gray for meta text */
+    --light-gray: #34495e;        /* A slightly lighter dark blue for the page background */
+    --border-color: #46627f;      /* A border color that works with the dark theme */
+    --danger-color: #f39c12;      /* An orange color for "danger" (e.g., delete) */
+    --danger-hover: #e67e22;      /* A darker orange for hover */
+    --font-family-headings: 'Montserrat', sans-serif;
+    --font-family-body: 'Lato', sans-serif;
+}
+
+body {
+    font-family: var(--font-family-body);
+    background-color: var(--light-gray);
+    color: var(--dark-color);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Navbar & Footer --- */
+.navbar {
+    background: var(--light-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-brand {
+    font-family: var(--font-family-headings);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 40px;
+    color: var(--gray-color);
+    font-size: 0.9rem;
+}
+
+/* --- Main Content & Typography --- */
+.main-content {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+h1, h2, h3 {
+    font-family: var(--font-family-headings);
+    font-weight: 700;
+    line-height: 1.2;
+}
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: var(--primary-color);
+    color: var(--light-color);
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.btn:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+    color: var(--light-color);
+    text-decoration: none;
+}
+.btn-secondary {
+    background: var(--dark-color);
+    border-color: var(--dark-color);
+}
+.btn-secondary:hover {
+    background: #415164;
+    border-color: #415164;
+}
+.btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+}
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: var(--light-color);
+}
+.btn-delete {
+    background: var(--danger-color);
+    border-color: var(--danger-color);
+}
+.btn-delete:hover {
+    background: var(--danger-hover);
+    border-color: var(--danger-hover);
+}
+
+/* --- Page Header & Search --- */
+.page-header {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.search-form {
+    display: flex;
+}
+.search-form input {
+    min-width: 250px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px 0 0 5px;
+}
+
+/* --- Post Cards --- */
+.post-card {
+    background: var(--light-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.post-card-content {
+    padding: 25px;
+}
+.post-meta {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+    margin-bottom: 15px;
+}
+.read-time {
+    margin-left: 15px;
+}
+.post-card-actions {
+    margin-top: 20px;
+}
+.post-card-actions .btn {
+    margin-right: 10px;
+}
+
+
+/* --- Full Post View --- */
+.back-link {
+    margin-bottom: 20px;
+}
+.full-post {
+    background: var(--light-color);
+    padding: 40px;
+    border-radius: 8px;
+}
+.full-post h1 {
+    font-size: 2.8rem;
+}
+.post-content {
+    margin-top: 30px;
+}
+.post-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 15px;
+}
+/* Markdown content styling */
+.post-content h2, .post-content h3 { margin-top: 1.5em; border-bottom: 1px solid var(--border-color); padding-bottom: 0.3em; }
+.post-content p { margin-bottom: 1.2em; }
+.post-content pre { border-radius: 5px; }
+.post-content blockquote { border-left: 4px solid var(--primary-color); padding-left: 15px; margin: 0 0 1em; color: var(--gray-color); font-style: italic;}
+.post-content ul, .post-content ol { padding-left: 20px; }
+
+
+/* --- Forms --- */
+.form-container {
+    background: var(--light-color);
+    padding: 40px;
+    border-radius: 8px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.post-form input[type="text"], .post-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    font-family: var(--font-family-body);
+}
+.post-form textarea {
+    min-height: 250px;
+    resize: vertical;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .full-post h1 {
+        font-size: 2rem;
+    }
+    .full-post, .form-container {
+        padding: 20px;
+    }
+}
+/* --- Form Actions --- */
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px; /* This creates space between the buttons */
+    align-items: center;
+}

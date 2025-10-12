@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+
+<header class="page-header">
+    <h1><%= pageTitle %></h1>
+    <form action="/" method="GET" class="search-form">
+        <input type="search" name="search" placeholder="Search posts..." value="<%= locals.query || '' %>" autocomplete="off">
+        <button type="submit" class="btn">Search</button>
+    </form>
+</header>
+
+<main class="post-list">
+    <% if(posts.length > 0) { %>
+        <% posts.forEach(post => { %>
+            <article class="post-card">
+                <div class="post-card-content">
+                    <h2><a href="/post/<%= post.$loki %>"><%= post.title %></a></h2>
+                    <p class="post-meta">
+                        <span>By <%= post.author %> on <%= post.createdAt %></span>
+                        <span class="read-time"><%= post.readTime %></span>
+                    </p>
+                    <div class="post-card-actions">
+                         <a href="/post/<%= post.$loki %>" class="btn btn-secondary">Read More</a>
+                         <a href="/edit/<%= post.$loki %>" class="btn btn-outline">Edit</a>
+                    </div>
+                </div>
+            </article>
+        <% }) %>
+    <% } else { %>
+        <p>No posts found. Why not <a href="/new">create one</a>?</p>
+    <% } %>
+</main>
+
+<%- include('partials/footer') %>
